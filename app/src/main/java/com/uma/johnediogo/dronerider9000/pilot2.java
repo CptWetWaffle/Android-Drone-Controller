@@ -163,7 +163,7 @@ public class pilot2 extends ActionBarActivity{
             case 21:
                 new CommandWorkerThread("[\"left\",[0.2],2]\n").start();
                 break;
-            //right arrow - right
+            //right arow - right
             case 22:
                 new CommandWorkerThread("[\"right\",[0.2],2]\n").start();
                 break;
