@@ -151,22 +151,52 @@ public class pilot2 extends ActionBarActivity{
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event){
         switch (keyCode){
+            //up arrow - front
+            case 19:
+                new CommandWorkerThread("[\"front\",[0.2],2]\n").start();
+                break;
+            //down arrow - back
+            case 20:
+                new CommandWorkerThread("[\"back\",[0.2],2]\n").start();
+                break;
+            //left arrow - left
+            case 21:
+                new CommandWorkerThread("[\"left\",[0.2],2]\n").start();
+                break;
+            //right arrow - right
+            case 22:
+                new CommandWorkerThread("[\"right\",[0.2],2]\n").start();
+                break;
+            //X - up
             case 96:
-                if(state !="up") {
-                    new CommandWorkerThread("[\"up\",[0.0],2]\n").start();
-                    state = "up";
-                }else {
                     new CommandWorkerThread("[\"up\",[0.2],2]\n").start();
-                    state = "up";
-                }
                 break;
-            case 105:
-                new CommandWorkerThread("[\"takeoff\",[],1]\n").start();
+            //Delta - down
+            case 99:
+                new CommandWorkerThread("[\"animateLeds\",[blinkGreenRed,5,2],2]\n").start();
                 break;
+            //Delta - down
+            case 100:
+                new CommandWorkerThread("[\"up\",[-0.2],2]\n").start();
+                break;
+            //L1 - turn counter clockwise
+            case 102:
+                new CommandWorkerThread("[\"clockwise\",[-0.2],2]\n").start();
+                break;
+            //R1 - turn clockwise
+            case 103:
+                new CommandWorkerThread("[\"clockwise\",[0.2],1]\n").start();
+                break;
+                //L2 - land
             case 104:
                 new CommandWorkerThread("[\"stop\",[],1]\n").start();
                 new CommandWorkerThread("[\"land\",[],1]\n").start();
                 break;
+            // R2 - takeoff
+            case 105:
+                new CommandWorkerThread("[\"takeoff\",[],1]\n").start();
+                break;
+
             default:
                 break;
         }
