@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/mainLayout"
+    android:clickable="true"
+    >
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/vid">
+
+    </RelativeLayout>
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:clickable="true"
+    android:id="@+id/relLay"
+    >
+
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/forwardButton"
+        android:layout_above="@+id/rightButton"
+        android:layout_toRightOf="@+id/leftButton"
+        android:layout_toEndOf="@+id/leftButton"
+        android:src="@mipmap/up"
+        android:onClick="onFrontClick"
+        android:contentDescription="@string/frontwards" />
+
+    <ImageButton
+        android:id="@+id/leftButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        android:layout_below="@+id/forwardButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@mipmap/left"
+        android:clickable="true"
+        android:onClick="onLeftClick" />
+
+    <ImageButton
+        android:id="@+id/rightButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        android:layout_above="@+id/backwardButton"
+        android:layout_toRightOf="@+id/forwardButton"
+        android:layout_toEndOf="@+id/forwardButton"
+        android:src="@mipmap/right"
+        android:onClick="onRightClick" />
+
+    <ImageButton
+        android:id="@+id/backwardButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        android:layout_above="@+id/liftButton"
+        android:layout_toRightOf="@+id/leftButton"
+        android:layout_toEndOf="@+id/leftButton"
+        android:layout_marginBottom="47dp"
+        android:src="@mipmap/down"
+        android:onClick="onBackClick" />
+
+    <ImageButton
+        android:id="@+id/upButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        android:layout_above="@+id/rotateRButton"
+        android:layout_toLeftOf="@+id/rotateRButton"
+        android:layout_toStartOf="@+id/rotateRButton"
+        android:src="@mipmap/up"
+        android:onClick="onUpClick" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/downButton"
+        android:layout_below="@+id/rightButton"
+        android:layout_alignLeft="@+id/upButton"
+        android:layout_alignStart="@+id/upButton"
+        android:src="@mipmap/down"
+        android:onClick="onDownClick" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/rotateLButton"
+        android:layout_above="@+id/downButton"
+        android:layout_toLeftOf="@+id/downButton"
+        android:layout_toStartOf="@+id/downButton"
+        android:src="@mipmap/left"
+        android:onClick="onLRotateClick" />
+
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
+        android:id="@+id/rotateRButton"
+        android:layout_above="@+id/downButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@mipmap/right"
+        android:onClick="onRRotateClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LIFT OFF!"
+        android:id="@+id/liftButton"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calibrate"
+        android:id="@+id/button"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/liftButton"
+        android:layout_alignEnd="@+id/liftButton"
+        android:onClick="onCalibrateDroneClick" />
+
+
+</RelativeLayout>
+</RelativeLayout>

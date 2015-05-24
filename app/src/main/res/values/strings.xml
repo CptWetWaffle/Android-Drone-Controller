@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">DroneRider9000</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_pilot2">Pilot</string>
+    <string name="title_activity_server">Server</string>
+    <string name="title_activity_video">Video</string>
+    <string name="frontwards">This button moves the drone frontwards</string>
+</resources>
