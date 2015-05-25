@@ -154,14 +154,14 @@ public class pilot2 extends ActionBarActivity{
             //up arrow - front
             case 19:
                 if(state !="front") {
-                    new CommandWorkerThread("[\"front\",[0.0],2]\n").start();
+                    new CommandWorkerThread("[\"front\",[0.2],2]\n").start();
                     state = "front";
                 }
                 break;
             //down arrow - back
             case 20:
                 if(state !="back") {
-                    new CommandWorkerThread("[\"back\",[0.0],2]\n").start();
+                    new CommandWorkerThread("[\"back\",[0.2],2]\n").start();
                     state = "back";
                 }
                 break;
@@ -187,7 +187,7 @@ public class pilot2 extends ActionBarActivity{
                 break;
             //square - leds
             case 99:
-                new CommandWorkerThread("[\"animateLeds\",[blinkGreenRed,5,2],3]\n").start();
+             //   new CommandWorkerThread("[\"animateLeds\",[blinkGreenRed,5,2],3]\n").start();
                 break;
             //Delta - down
             case 100:
@@ -213,6 +213,79 @@ public class pilot2 extends ActionBarActivity{
             case 105:
                 new CommandWorkerThread("[\"takeoff\",[],1]\n").start();
                 break;
+
+            default:
+                break;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+        switch (keyCode){
+            //up arrow - front
+            case 19:
+                if(state =="front") {
+                    new CommandWorkerThread("[\"front\",[0.0],2]\n").start();
+                    state = "";
+                }
+                break;
+            //down arrow - back
+            case 20:
+                if(state =="back") {
+                    new CommandWorkerThread("[\"back\",[0.0],2]\n").start();
+                    state = "";
+                }
+                break;
+            //left arrow - left
+            case 21:
+                if(state =="left") {
+                    new CommandWorkerThread("[\"left\",[0.0],2]\n").start();
+                    state = "";
+                }
+                break;
+            //right arrow - right
+            case 22:
+                if(state =="right") {
+                    new CommandWorkerThread("[\"right\",[0.0],2]\n").start();
+                    state = "";
+                } break;
+            //X - up
+            case 96:
+                if(state =="up") {
+                    new CommandWorkerThread("[\"up\",[0.0],2]\n").start();
+                    state = "";
+                }
+                break;
+            //square - leds
+            case 99:
+                //new CommandWorkerThread("[\"animateLeds\",[blinkGreenRed,5,2],3]\n").start();
+                break;
+            //Delta - down
+            case 100:
+                if(state =="down") {
+                    new CommandWorkerThread("[\"up\",[0.0],1]\n").start();
+                    state = "";
+                }
+                break;
+            //L1 - turn counter clockwise
+            case 102:
+
+                new CommandWorkerThread("[\"clockwise\",[0.0],1]\n").start();
+                break;
+            //R1 - turn clockwise
+            case 103:
+                new CommandWorkerThread("[\"clockwise\",[0.0],1]\n").start();
+                break;
+            /*//L2 - land
+            case 104:
+                new CommandWorkerThread("[\"stop\",[],1]\n").start();
+                new CommandWorkerThread("[\"land\",[],1]\n").start();
+                break;
+            // R2 - takeoff
+            case 105:
+                new CommandWorkerThread("[\"takeoff\",[],1]\n").start();
+                break;*/
 
             default:
                 break;
