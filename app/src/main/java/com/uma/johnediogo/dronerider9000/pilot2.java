@@ -153,35 +153,52 @@ public class pilot2 extends ActionBarActivity{
         switch (keyCode){
             //up arrow - front
             case 19:
-                new CommandWorkerThread("[\"front\",[0.2],2]\n").start();
+                if(state !="front") {
+                    new CommandWorkerThread("[\"front\",[0.0],2]\n").start();
+                    state = "front";
+                }
                 break;
             //down arrow - back
             case 20:
-                new CommandWorkerThread("[\"back\",[0.2],2]\n").start();
+                if(state !="back") {
+                    new CommandWorkerThread("[\"back\",[0.0],2]\n").start();
+                    state = "back";
+                }
                 break;
             //left arrow - left
             case 21:
-                new CommandWorkerThread("[\"left\",[0.2],2]\n").start();
+                if(state !="left") {
+                    new CommandWorkerThread("[\"left\",[0.2],2]\n").start();
+                    state = "left";
+                }
                 break;
-            //right arow - right
+            //right arrow - right
             case 22:
-                new CommandWorkerThread("[\"right\",[0.2],2]\n").start();
-                break;
+                if(state !="right") {
+                    new CommandWorkerThread("[\"right\",[0.2],2]\n").start();
+                    state = "right";
+                } break;
             //X - up
             case 96:
+                if(state !="up") {
                     new CommandWorkerThread("[\"up\",[0.2],2]\n").start();
+                    state = "up";
+                }
                 break;
-            //Delta - down
+            //square - leds
             case 99:
-                new CommandWorkerThread("[\"animateLeds\",[blinkGreenRed,5,2],2]\n").start();
+                new CommandWorkerThread("[\"animateLeds\",[blinkGreenRed,5,2],3]\n").start();
                 break;
             //Delta - down
             case 100:
-                new CommandWorkerThread("[\"up\",[-0.2],2]\n").start();
+                if(state !="down") {
+                    new CommandWorkerThread("[\"up\",[-0.2],1]\n").start();
+                    state = "down";
+                }
                 break;
             //L1 - turn counter clockwise
             case 102:
-                new CommandWorkerThread("[\"clockwise\",[-0.2],2]\n").start();
+                new CommandWorkerThread("[\"clockwise\",[-0.2],1]\n").start();
                 break;
             //R1 - turn clockwise
             case 103:
@@ -202,6 +219,7 @@ public class pilot2 extends ActionBarActivity{
         }
         return true;
     }
+
 
     public void onDownClick(View v){
         if(state !="down") {
