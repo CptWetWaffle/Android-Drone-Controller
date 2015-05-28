@@ -198,11 +198,18 @@ public class pilot2 extends ActionBarActivity{
                 break;
             //L1 - turn counter clockwise
             case 102:
-                new CommandWorkerThread("[\"clockwise\",[-0.2],1]\n").start();
+                if(state!="turnleft"){
+                    new CommandWorkerThread("[\"clockwise\",[-0.2],1]\n").start();
+                    state="turnleft";
+                }
                 break;
             //R1 - turn clockwise
             case 103:
-                new CommandWorkerThread("[\"clockwise\",[0.2],1]\n").start();
+                 if(state!="turnright"){
+                    new CommandWorkerThread("[\"clockwise\",[0.2],1]\n").start();
+                    state="turnright";
+                     
+                 }
                 break;
                 //L2 - land
             case 104:
@@ -221,7 +228,7 @@ public class pilot2 extends ActionBarActivity{
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event){
+    public boolean onKeyUp(int keyCode, KeyEvent event){
         switch (keyCode){
             //up arrow - front
             case 19:
@@ -270,13 +277,19 @@ public class pilot2 extends ActionBarActivity{
                 break;
             //L1 - turn counter clockwise
             case 102:
-
-                new CommandWorkerThread("[\"clockwise\",[0.0],1]\n").start();
+                if(state == "turnleft"){
+                    new CommandWorkerThread("[\"clockwise\",[0.0],1]\n").start();
+                    state="";
+                }
                 break;
             //R1 - turn clockwise
             case 103:
-                new CommandWorkerThread("[\"clockwise\",[0.0],1]\n").start();
+                if(state == "turnright"){
+                    new CommandWorkerThread("[\"clockwise\",[0.0],1]\n").start();
+                    state="";
+                }
                 break;
+                
             /*//L2 - land
             case 104:
                 new CommandWorkerThread("[\"stop\",[],1]\n").start();
